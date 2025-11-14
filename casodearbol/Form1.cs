@@ -20,7 +20,11 @@ namespace casodearbol
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-        
+            if (!string.IsNullOrWhiteSpace(TBox.Text))
+            {
+                TvArbol.Nodes.Add(TBox.Text);
+                TBox.Clear();
+            }
         }
     }
 }
