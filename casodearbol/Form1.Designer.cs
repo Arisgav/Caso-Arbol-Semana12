@@ -32,6 +32,10 @@
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.Lbl1 = new System.Windows.Forms.Label();
             this.TBox = new System.Windows.Forms.TextBox();
+            this.BtnInsetar = new System.Windows.Forms.Button();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.BtnContar = new System.Windows.Forms.Button();
+            this.Lbl2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TvArbol
@@ -68,11 +72,52 @@
             this.TBox.Size = new System.Drawing.Size(132, 20);
             this.TBox.TabIndex = 3;
             // 
+            // BtnInsetar
+            // 
+            this.BtnInsetar.Location = new System.Drawing.Point(436, 96);
+            this.BtnInsetar.Name = "BtnInsetar";
+            this.BtnInsetar.Size = new System.Drawing.Size(75, 23);
+            this.BtnInsetar.TabIndex = 4;
+            this.BtnInsetar.Text = "Insertar";
+            this.BtnInsetar.UseVisualStyleBackColor = true;
+            this.BtnInsetar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.Location = new System.Drawing.Point(436, 181);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.BtnBuscar.TabIndex = 5;
+            this.BtnBuscar.Text = "Buscar";
+            this.BtnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // BtnContar
+            // 
+            this.BtnContar.Location = new System.Drawing.Point(436, 139);
+            this.BtnContar.Name = "BtnContar";
+            this.BtnContar.Size = new System.Drawing.Size(75, 23);
+            this.BtnContar.TabIndex = 6;
+            this.BtnContar.Text = "Contar";
+            this.BtnContar.UseVisualStyleBackColor = true;
+            // 
+            // Lbl2
+            // 
+            this.Lbl2.AutoSize = true;
+            this.Lbl2.Location = new System.Drawing.Point(517, 144);
+            this.Lbl2.Name = "Lbl2";
+            this.Lbl2.Size = new System.Drawing.Size(16, 13);
+            this.Lbl2.TabIndex = 7;
+            this.Lbl2.Text = ":0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Lbl2);
+            this.Controls.Add(this.BtnContar);
+            this.Controls.Add(this.BtnBuscar);
+            this.Controls.Add(this.BtnInsetar);
             this.Controls.Add(this.TBox);
             this.Controls.Add(this.Lbl1);
             this.Controls.Add(this.BtnAgregar);
@@ -90,6 +135,10 @@
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Label Lbl1;
         private System.Windows.Forms.TextBox TBox;
+        private System.Windows.Forms.Button BtnInsetar;
+        private System.Windows.Forms.Button BtnBuscar;
+        private System.Windows.Forms.Button BtnContar;
+        private System.Windows.Forms.Label Lbl2;
     }
 }
 

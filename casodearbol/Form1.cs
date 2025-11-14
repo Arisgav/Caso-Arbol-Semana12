@@ -30,19 +30,42 @@ namespace casodearbol
                 Derecho = null;
             }
         }
+        TreeNode nodoSeleccionado;
+        private TreeNode CrearNodoTree(Nodo nodo)
+        {
+            TreeNode tn = new TreeNode(nodo.Valor.ToString());
 
+            if (nodo.Izquierdo != null)
+                tn.Nodes.Add(CrearNodoTree(nodo.Izquierdo));
+
+            if (nodo.Derecho != null)
+                tn.Nodes.Add(CrearNodoTree(nodo.Derecho));
+
+            return tn;
+        }
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(TBox.Text))
             {
-                TvArbol.Nodes.Add(TBox.Text);
+                if (nodoSeleccionado != null)
+                {
+                    // Agregar como hijo del nodo seleccionado
+                    nodoSeleccionado.Nodes.Add(TBox.Text);
+                    nodoSeleccionado.Expand(); // para que se vea
+                }
+                else
+                {
+                    // Si no hay nodo seleccionado, se agrega como un nodo raíz
+                    TvArbol.Nodes.Add(TBox.Text);
+                }
+
                 TBox.Clear();
             }
         }
 
         private void TvArbol_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
+            TvArbol.AfterSelect += TvArbol_AfterSelect;
         }
     }
 }
