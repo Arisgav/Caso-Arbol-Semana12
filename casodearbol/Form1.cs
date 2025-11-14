@@ -17,6 +17,19 @@ namespace casodearbol
         {
             InitializeComponent();
         }
+        public class Nodo
+        {
+            public int Valor;
+            public Nodo Izquierdo;
+            public Nodo Derecho;
+
+            public Nodo(int valor)
+            {
+                Valor = valor;
+                Izquierdo = null;
+                Derecho = null;
+            }
+        }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
@@ -25,6 +38,11 @@ namespace casodearbol
                 TvArbol.Nodes.Add(TBox.Text);
                 TBox.Clear();
             }
+        }
+
+        private void TvArbol_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
         }
     }
 }

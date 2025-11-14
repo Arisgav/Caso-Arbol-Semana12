@@ -40,6 +40,7 @@
             this.TvArbol.Name = "TvArbol";
             this.TvArbol.Size = new System.Drawing.Size(263, 228);
             this.TvArbol.TabIndex = 0;
+            this.TvArbol.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TvArbol_AfterSelect);
             // 
             // BtnAgregar
             // 
