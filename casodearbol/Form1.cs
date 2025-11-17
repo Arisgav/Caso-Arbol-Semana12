@@ -170,5 +170,10 @@ namespace casodearbol
             GraFo fg = new GraFo();
             fg.Show();
         }
+
+        private void Lbl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

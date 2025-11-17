@@ -64,11 +64,12 @@ namespace casodearbol
             // Lbl1
             // 
             this.Lbl1.AutoSize = true;
-            this.Lbl1.Location = new System.Drawing.Point(41, 47);
+            this.Lbl1.Location = new System.Drawing.Point(89, 43);
             this.Lbl1.Name = "Lbl1";
-            this.Lbl1.Size = new System.Drawing.Size(154, 13);
+            this.Lbl1.Size = new System.Drawing.Size(94, 13);
             this.Lbl1.TabIndex = 2;
-            this.Lbl1.Text = "metelo justo aqui que es ancho";
+            this.Lbl1.Text = "introduzca el nodo";
+            this.Lbl1.Click += new System.EventHandler(this.Lbl1_Click);
             // 
             // TBox
             // 
@@ -130,7 +131,7 @@ namespace casodearbol
             // grafoToolStripMenuItem1
             // 
             this.grafoToolStripMenuItem1.Name = "grafoToolStripMenuItem1";
-            this.grafoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.grafoToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.grafoToolStripMenuItem1.Text = "Grafo";
             this.grafoToolStripMenuItem1.Click += new System.EventHandler(this.grafoToolStripMenuItem1_Click);
             // 
