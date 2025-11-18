@@ -55,7 +55,7 @@ namespace casodearbol
             // 
             this.BtnAgregar.Location = new System.Drawing.Point(347, 33);
             this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(84, 40);
+            this.BtnAgregar.Size = new System.Drawing.Size(84, 29);
             this.BtnAgregar.TabIndex = 1;
             this.BtnAgregar.Text = "agregar";
             this.BtnAgregar.UseVisualStyleBackColor = true;
@@ -64,9 +64,10 @@ namespace casodearbol
             // Lbl1
             // 
             this.Lbl1.AutoSize = true;
-            this.Lbl1.Location = new System.Drawing.Point(89, 43);
+            this.Lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl1.Location = new System.Drawing.Point(38, 42);
             this.Lbl1.Name = "Lbl1";
-            this.Lbl1.Size = new System.Drawing.Size(94, 13);
+            this.Lbl1.Size = new System.Drawing.Size(157, 20);
             this.Lbl1.TabIndex = 2;
             this.Lbl1.Text = "introduzca el nodo";
             this.Lbl1.Click += new System.EventHandler(this.Lbl1_Click);
@@ -80,7 +81,7 @@ namespace casodearbol
             // 
             // BtnInsetar
             // 
-            this.BtnInsetar.Location = new System.Drawing.Point(356, 110);
+            this.BtnInsetar.Location = new System.Drawing.Point(347, 80);
             this.BtnInsetar.Name = "BtnInsetar";
             this.BtnInsetar.Size = new System.Drawing.Size(75, 23);
             this.BtnInsetar.TabIndex = 4;
@@ -90,7 +91,7 @@ namespace casodearbol
             // 
             // BtnBuscar
             // 
-            this.BtnBuscar.Location = new System.Drawing.Point(356, 178);
+            this.BtnBuscar.Location = new System.Drawing.Point(347, 147);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(75, 23);
             this.BtnBuscar.TabIndex = 5;
@@ -100,7 +101,7 @@ namespace casodearbol
             // 
             // BtnContar
             // 
-            this.BtnContar.Location = new System.Drawing.Point(356, 149);
+            this.BtnContar.Location = new System.Drawing.Point(347, 109);
             this.BtnContar.Name = "BtnContar";
             this.BtnContar.Size = new System.Drawing.Size(75, 23);
             this.BtnContar.TabIndex = 6;
@@ -114,7 +115,7 @@ namespace casodearbol
             this.grafoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(560, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(777, 24);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -139,7 +140,7 @@ namespace casodearbol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 450);
+            this.ClientSize = new System.Drawing.Size(777, 450);
             this.Controls.Add(this.BtnContar);
             this.Controls.Add(this.BtnBuscar);
             this.Controls.Add(this.BtnInsetar);

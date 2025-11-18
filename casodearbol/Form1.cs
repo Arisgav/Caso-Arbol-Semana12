@@ -17,7 +17,7 @@ namespace casodearbol
             InitializeComponent();
         }
 
-        // Clase nodo (si la necesitás luego para estructuras)
+        // Clase nodo (opcional para estructuras más avanzadas)
         public class Nodo
         {
             public int Valor;
@@ -32,7 +32,7 @@ namespace casodearbol
             }
         }
 
-        // Nodo seleccionado en el TreeView
+        // Nodo actualmente seleccionado en TreeView
         TreeNode nodoSeleccionado;
 
         private TreeNode CrearNodoTree(Nodo nodo)
@@ -48,28 +48,22 @@ namespace casodearbol
             return tn;
         }
 
-        // AGREGAR NODO (RAÍZ E HIJO)
+        // ==================== BOTÓN AGREGAR ====================
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(TBox.Text))
             {
-                if (nodoSeleccionado != null)
-                {
-                    // Agregar como hijo del nodo seleccionado
-                    nodoSeleccionado.Nodes.Add(TBox.Text);
-                    nodoSeleccionado.Expand();
-                }
-                else
-                {
-                    // Agregar como nodo raíz
-                    TvArbol.Nodes.Add(TBox.Text);
-                }
+                // Agregar siempre como nodo raíz
+                TvArbol.Nodes.Add(TBox.Text);
+
+                // Limpiar selección
+                TvArbol.SelectedNode = null;
+                nodoSeleccionado = null;
 
                 TBox.Clear();
             }
         }
 
-        // CORRECCIÓN: obtener nodo seleccionado
         private void TvArbol_AfterSelect(object sender, TreeViewEventArgs e)
         {
             nodoSeleccionado = e.Node;
@@ -80,7 +74,7 @@ namespace casodearbol
 
         }
 
-        // BOTÓN INSERTAR (agregar hijo al seleccionado)
+        // ==================== BOTÓN INSERTAR ====================
         private void BtnInsetar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TBox.Text))
@@ -88,7 +82,7 @@ namespace casodearbol
 
             if (nodoSeleccionado == null)
             {
-                MessageBox.Show("Selecciona un nodo primero.");
+                MessageBox.Show("Selecciona una rama para agregar una subrama.");
                 return;
             }
 
@@ -97,33 +91,32 @@ namespace casodearbol
             TBox.Clear();
         }
 
-        // FUNCIÓN RECURSIVA PARA CONTAR NODOS
+        // ==================== CONTAR NODOS ====================
         private int ContarNodos(TreeNodeCollection nodos)
         {
             int total = 0;
 
             foreach (TreeNode n in nodos)
             {
-                total++;
-                total += ContarNodos(n.Nodes);
+                total++; // cuenta este nodo
+                total += ContarNodos(n.Nodes); // cuenta los hijos
             }
 
             return total;
         }
 
-        // BOTÓN CONTAR
         private void BtnContar_Click(object sender, EventArgs e)
         {
             int total = ContarNodos(TvArbol.Nodes);
             MessageBox.Show("Total de nodos: " + total);
         }
 
-        // FUNCIÓN BUSCAR
+        // ==================== FUNCIÓN BUSCAR ====================
         private TreeNode BuscarNodo(TreeNodeCollection nodos, string texto)
         {
             foreach (TreeNode n in nodos)
             {
-                if (n.Text == texto)
+                if (n.Text.Equals(texto, StringComparison.OrdinalIgnoreCase))
                     return n;
 
                 TreeNode encontrado = BuscarNodo(n.Nodes, texto);
@@ -134,22 +127,43 @@ namespace casodearbol
             return null;
         }
 
-        // BOTÓN BUSCAR
+        // Función para generar ruta legible
+        private string ObtenerRutaLegible(TreeNode nodo)
+        {
+            if (nodo == null) return "";
+            string ruta = nodo.Text;
+            TreeNode padre = nodo.Parent;
+
+            while (padre != null)
+            {
+                ruta = padre.Text + " > " + ruta;
+                padre = padre.Parent;
+            }
+
+            return ruta;
+        }
+
+        // ==================== BOTÓN BUSCAR ====================
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TBox.Text))
+            string texto = TBox.Text.Trim();
+            if (string.IsNullOrEmpty(texto))
                 return;
 
-            TreeNode encontrado = BuscarNodo(TvArbol.Nodes, TBox.Text);
+            TreeNode encontrado = BuscarNodo(TvArbol.Nodes, texto);
 
             if (encontrado != null)
             {
                 TvArbol.SelectedNode = encontrado;
                 encontrado.Expand();
+                encontrado.EnsureVisible();
+
+                string ruta = ObtenerRutaLegible(encontrado);
+                MessageBox.Show($"Nodo '{texto}' encontrado en la ruta:\n{ruta}");
             }
             else
             {
-                MessageBox.Show("No se encontró el nodo.");
+                MessageBox.Show($"No se encontró el nodo '{texto}' en el árbol.");
             }
 
             TBox.Clear();
