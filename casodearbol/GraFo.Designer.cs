@@ -87,7 +87,7 @@
             // 
             this.LblOrigen.AutoSize = true;
             this.LblOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblOrigen.Location = new System.Drawing.Point(7, 333);
+            this.LblOrigen.Location = new System.Drawing.Point(49, 303);
             this.LblOrigen.Name = "LblOrigen";
             this.LblOrigen.Size = new System.Drawing.Size(103, 33);
             this.LblOrigen.TabIndex = 6;
@@ -106,7 +106,7 @@
             this.ListBoxEdificios.FormattingEnabled = true;
             this.ListBoxEdificios.Location = new System.Drawing.Point(633, 50);
             this.ListBoxEdificios.Name = "ListBoxEdificios";
-            this.ListBoxEdificios.Size = new System.Drawing.Size(361, 316);
+            this.ListBoxEdificios.Size = new System.Drawing.Size(185, 316);
             this.ListBoxEdificios.TabIndex = 8;
             // 
             // BtnAgregarEdificio
@@ -121,7 +121,7 @@
             // 
             // BtnAggConexion
             // 
-            this.BtnAggConexion.Location = new System.Drawing.Point(358, 310);
+            this.BtnAggConexion.Location = new System.Drawing.Point(55, 168);
             this.BtnAggConexion.Name = "BtnAggConexion";
             this.BtnAggConexion.Size = new System.Drawing.Size(75, 66);
             this.BtnAggConexion.TabIndex = 10;
@@ -141,7 +141,7 @@
             // 
             // BtnRutaMasCorta
             // 
-            this.BtnRutaMasCorta.Location = new System.Drawing.Point(231, 319);
+            this.BtnRutaMasCorta.Location = new System.Drawing.Point(22, 32);
             this.BtnRutaMasCorta.Name = "BtnRutaMasCorta";
             this.BtnRutaMasCorta.Size = new System.Drawing.Size(138, 54);
             this.BtnRutaMasCorta.TabIndex = 12;
@@ -150,7 +150,7 @@
             // 
             // BtnValidarConexidad
             // 
-            this.BtnValidarConexidad.Location = new System.Drawing.Point(411, 310);
+            this.BtnValidarConexidad.Location = new System.Drawing.Point(49, 92);
             this.BtnValidarConexidad.Name = "BtnValidarConexidad";
             this.BtnValidarConexidad.Size = new System.Drawing.Size(81, 63);
             this.BtnValidarConexidad.TabIndex = 13;
@@ -188,9 +188,9 @@
             // 
             this.groupBox1.Controls.Add(this.BtnEliminarEdificio);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.BtnRutaMasCorta);
             this.groupBox1.Controls.Add(this.TboxEdificio1);
             this.groupBox1.Controls.Add(this.BtnValidarConexidad);
-            this.groupBox1.Controls.Add(this.BtnRutaMasCorta);
             this.groupBox1.Controls.Add(this.BtnAggConexion);
             this.groupBox1.Controls.Add(this.BtnAgregarEdificio);
             this.groupBox1.Controls.Add(this.ListBoxEdificios);
