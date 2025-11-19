@@ -41,10 +41,10 @@ namespace casodearbol
 
         private void BtnConexion_Click(object sender, EventArgs e)
         {
-            string origen = TboxOrigen.Text.Trim();
-            string destino = TboxDestino.Text.Trim();
+            string origen = TboxDistanciaEntreEdificios.Text.Trim();
+            string destino = TboxEdificio1.Text.Trim();
 
-            if (!int.TryParse(TboxDistancia.Text, out int distancia) || distancia <= 0)
+            if (!int.TryParse(TboxEdificio2.Text, out int distancia) || distancia <= 0)
             {
                 MessageBox.Show("Ingrese una distancia válida (número mayor a 0).");
                 return;
@@ -81,9 +81,9 @@ namespace casodearbol
 
             MessageBox.Show($"Conexión agregada: {origen} <-> {destino} ({distancia})");
 
-            TboxOrigen.Clear();
-            TboxDestino.Clear();
-            TboxDistancia.Clear();
+            TboxDistanciaEntreEdificios.Clear();
+            TboxEdificio1.Clear();
+            TboxEdificio2.Clear();
         }
 
         private void BtnMostrarC_Click(object sender, EventArgs e)
@@ -160,8 +160,8 @@ namespace casodearbol
 
         private void BtnRutaMasCorta_Click(object sender, EventArgs e)
         {
-            string origen = TboxOrigen.Text.Trim();
-            string destino = TboxDestino.Text.Trim();
+            string origen = TboxDistanciaEntreEdificios.Text.Trim();
+            string destino = TboxEdificio1.Text.Trim();
 
             if (origen == "" || destino == "")
             {
@@ -253,5 +253,43 @@ namespace casodearbol
         private void TboxOrigen_TextChanged(object sender, EventArgs e) { }
         private void TboxEdificio_TextChanged(object sender, EventArgs e) { }
         private void GraFo_Load(object sender, EventArgs e) { }
+
+        private void BtnEliminarEdificio_Click(object sender, EventArgs e)
+        {
+            string edificio = TboxEdificio.Text.Trim();
+
+            if (edificio == "")
+            {
+                MessageBox.Show("Ingrese el nombre del edificio a eliminar.");
+                return;
+            }
+
+            if (!grafo.ContainsKey(edificio))
+            {
+                MessageBox.Show("Ese edificio no existe en el grafo.");
+                return;
+            }
+
+            // 1. Eliminar conexiones de otros nodos hacia este
+            foreach (var nodo in grafo.Keys.ToList())
+            {
+                grafo[nodo].RemoveAll(conexion => conexion.destino == edificio);
+            }
+
+            // 2. Eliminar edificio del grafo
+            grafo.Remove(edificio);
+
+            // 3. Eliminar del ListBox si aparece ahí
+            ListBoxEdificios.Items.Remove(edificio);
+
+            // 4. Limpiar campos
+            TboxEdificio.Clear();
+            TboxDistanciaEntreEdificios.Clear();
+            TboxEdificio1.Clear();
+            TboxEdificio2.Clear();
+
+            // 5. Mensaje final
+            MessageBox.Show($"Edificio '{edificio}' y todas sus conexiones fueron eliminados correctamente.");
+        }
     }
 }
